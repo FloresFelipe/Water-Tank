@@ -20,6 +20,9 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="ESP Target" Type="Folder">
+			<Item Name="Pump_Node" Type="Folder">
+				<Item Name="Pump_Node.ino" Type="Document" URL="../ESP Target/Pump_Node/Pump_Node.ino"/>
+			</Item>
 			<Item Name="State_Machine" Type="Folder">
 				<Item Name="State_Machine.ino" Type="Document" URL="../ESP Target/State_Machine/State_Machine.ino"/>
 			</Item>
