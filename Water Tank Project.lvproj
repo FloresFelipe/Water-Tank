@@ -27,15 +27,34 @@
 				<Item Name="State_Machine.ino" Type="Document" URL="../ESP Target/State_Machine/State_Machine.ino"/>
 			</Item>
 		</Item>
-		<Item Name="Object Oriented" Type="Folder">
-			<Item Name="Main.vi" Type="VI" URL="../Object Oriented/Main.vi"/>
-			<Item Name="Pump.lvclass" Type="LVClass" URL="../Object Oriented/Pump Class/Pump.lvclass"/>
-			<Item Name="Sensor.lvclass" Type="LVClass" URL="../Object Oriented/Sensor Class/Sensor.lvclass"/>
-			<Item Name="Tank.lvclass" Type="LVClass" URL="../Object Oriented/Tank Class/Tank.lvclass"/>
-		</Item>
-		<Item Name="Task Oriented" Type="Folder">
-			<Item Name="Sensor Persistence State.vi" Type="VI" URL="../Task Oriented/Sensor Persistence State.vi"/>
-			<Item Name="Water box.vi" Type="VI" URL="../Task Oriented/Water box.vi"/>
+		<Item Name="Simulation" Type="Folder">
+			<Property Name="NI.SortType" Type="Int">3</Property>
+			<Item Name="State Machines" Type="Folder">
+				<Item Name="Node 1 - Sensors + UDP" Type="Folder">
+					<Item Name="Sensors + UDP.vi" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Sensors + UDP.vi"/>
+					<Item Name="Node 1 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - States.ctl"/>
+				</Item>
+				<Item Name="Node 2- Senros + UDP" Type="Folder">
+					<Item Name="Pump + UDP.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Pump + UDP.vi"/>
+					<Item Name="Node 2 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - States.ctl"/>
+				</Item>
+			</Item>
+			<Item Name="Object Oriented" Type="Folder">
+				<Item Name="Pump Class" Type="Folder">
+					<Item Name="Pump.lvclass" Type="LVClass" URL="../Simulation/Object Oriented/Pump Class/Pump.lvclass"/>
+				</Item>
+				<Item Name="Sensor Class" Type="Folder">
+					<Item Name="Sensor.lvclass" Type="LVClass" URL="../Simulation/Object Oriented/Sensor Class/Sensor.lvclass"/>
+				</Item>
+				<Item Name="Tank Class" Type="Folder">
+					<Item Name="Tank.lvclass" Type="LVClass" URL="../Simulation/Object Oriented/Tank Class/Tank.lvclass"/>
+				</Item>
+				<Item Name="Main.vi" Type="VI" URL="../Simulation/Object Oriented/Main.vi"/>
+			</Item>
+			<Item Name="Task Oriented" Type="Folder">
+				<Item Name="Sensor Persistence State.vi" Type="VI" URL="../Simulation/Task Oriented/Sensor Persistence State.vi"/>
+				<Item Name="Water box.vi" Type="VI" URL="../Simulation/Task Oriented/Water box.vi"/>
+			</Item>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
