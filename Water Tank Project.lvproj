@@ -27,6 +27,9 @@
 				<Item Name="State_Machine.ino" Type="Document" URL="../ESP Target/State_Machine/State_Machine.ino"/>
 			</Item>
 		</Item>
+		<Item Name="Shared" Type="Folder">
+			<Item Name="Globals.vi" Type="VI" URL="../Simulation/State Machines/Shared/Globals.vi"/>
+		</Item>
 		<Item Name="Simulation" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
 			<Item Name="State Machines" Type="Folder">
@@ -37,7 +40,9 @@
 				<Item Name="Node 2- Senros + UDP" Type="Folder">
 					<Item Name="Pump + UDP.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Pump + UDP.vi"/>
 					<Item Name="Node 2 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - States.ctl"/>
+					<Item Name="Node 2 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - Error Handler.vi"/>
 				</Item>
+				<Item Name="Node 1 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - Error Handler.vi"/>
 			</Item>
 			<Item Name="Object Oriented" Type="Folder">
 				<Item Name="Pump Class" Type="Folder">
@@ -59,7 +64,13 @@
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="FormatTime String.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/FormatTime String.vi"/>
+				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
+				<Item Name="Set Cursor (Cursor ID).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Cursor ID).vi"/>
+				<Item Name="Set Cursor (Icon Pict).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Icon Pict).vi"/>
+				<Item Name="Set Cursor.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor.vi"/>
 				<Item Name="subElapsedTime.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/subElapsedTime.vi"/>
+				<Item Name="subTimeDelay.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/TimeDelayBlock.llb/subTimeDelay.vi"/>
+				<Item Name="Unset Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Unset Busy.vi"/>
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
