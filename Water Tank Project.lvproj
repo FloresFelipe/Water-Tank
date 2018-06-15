@@ -38,7 +38,7 @@
 					<Item Name="Node 1 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - States.ctl"/>
 					<Item Name="Node 1 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - Error Handler.vi"/>
 				</Item>
-				<Item Name="Node 2- Senros + UDP" Type="Folder">
+				<Item Name="Node 2 - Pump + UDP" Type="Folder">
 					<Item Name="Pump + UDP.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Pump + UDP.vi"/>
 					<Item Name="Node 2 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - States.ctl"/>
 					<Item Name="Node 2 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - Error Handler.vi"/>
