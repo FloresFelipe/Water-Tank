@@ -38,7 +38,7 @@
 					<Item Name="Node 1 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - States.ctl"/>
 					<Item Name="Node 1 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 1 - Sensors + UDP/Node 1 - Error Handler.vi"/>
 				</Item>
-				<Item Name="Node 2 - Pump + UDP" Type="Folder">
+				<Item Name="Node 2- Senros + UDP" Type="Folder">
 					<Item Name="Pump + UDP.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Pump + UDP.vi"/>
 					<Item Name="Node 2 - States.ctl" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - States.ctl"/>
 					<Item Name="Node 2 - Error Handler.vi" Type="VI" URL="../Simulation/State Machines/Node 2 - Pump + UDP/Node 2 - Error Handler.vi"/>
@@ -63,6 +63,7 @@
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
+				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="FormatTime String.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/FormatTime String.vi"/>
 				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
 				<Item Name="Set Cursor (Cursor ID).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Cursor ID).vi"/>
