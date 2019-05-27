@@ -1,4 +1,4 @@
-//This is the code for the Pump Node. This one will be
+//This is the code for thePump Node. This one will be
 //Responsible for receiving the command from the Sensors Node
 //and toggle the pump state
 
@@ -48,7 +48,7 @@ void loop() {
 
     //Current State     |   Core State funtion  |  end of the state
 		case INITIALIZE:        initialize();             break;
-		case READ_PUMP_STATES:  readPumpStates();      	  break;
+		case READ_PUMP_STATE:   readPumpStates();      	  break;
 		case TOGGLE_PUMP:       togglePump(pumpState);    break;
     case SEND_HB:           heartBeat();              break;
     case SAFE_STATE:        safeState();              break;
@@ -76,7 +76,7 @@ void initialize() {
       //State function code
       Serial.println("Inicializando Dispositivo...");
       //Transition Code
-      nextState = READ_PUMP_STATES;
+      nextState = SEND_HB;
     }
 
 //*********************************************
@@ -91,7 +91,7 @@ void readPumpStates(){
       
       //Transition Code
       //Check the Packet Buffer. If it is "CHANGE" so transition to TOGGLE_PUMP
-      //boolean pumpState = true tirar o comentário mais para frente
+      boolean pumpState = true; //tirar o comentário mais para frente
       nextState = TOGGLE_PUMP;
       //Else, transition to SEND_HB
       nextState = SEND_HB;
@@ -101,7 +101,7 @@ void readPumpStates(){
 //TOGGLE PUMP STATE
 //*********************************************
 
-void togglePump(pumpState){
+void togglePump(boolean pumpState){
 
    if(pumpState){ 
       //State function code
@@ -127,9 +127,9 @@ void heartBeat(){
       Serial.println("HB ACK");
       //Transition Code
       //SE EU LER O SINAL, VOLTAR E LER O ESTADO DA BOMBA
-      nextState = READ_PUMP_STATES;      
+      nextState = READ_PUMP_STATE;      
       //SE EU NÃO LER O SINAL, DESVIAR PARA O SAFE STATE
-      nextState = SAFE_STATE;
+      nextState = SEND_HB;
       }
 
 //*********************************************
