@@ -2,6 +2,8 @@
 //Responsible for receiving the command from the Sensors Node
 //and toggle the pump state
 
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
 
 //**********************************************
 // Global Variables
@@ -23,8 +25,16 @@ enum states {
 
 states nextState = INITIALIZE;
 
-char packetBuffer[255];
+WiFiUDP Udp;
+unsigned int localUdpPort = 61555;
+char incomingPacket[255];
+char replyPacket[255]="ACK";
 boolean pumpState;
+
+const char *ssid =  "GomesFlores";     // replace with your wifi ssid and wpa2 key
+const char *pass =  "PassWord007";
+
+WiFiClient client;
 
 
 //**********************************************
@@ -35,6 +45,20 @@ void setup() {
 	// put your setup code here, to run once:
 	Serial.begin(9600);
 	pinMode(03, OUTPUT);
+
+   Serial.println("Connecting to ");
+       Serial.println(ssid); 
+ 
+       WiFi.begin(ssid, pass); 
+       while (WiFi.status() != WL_CONNECTED) 
+          {
+            delay(500);
+            Serial.print(".");
+          }
+      Serial.println("");
+      Serial.println("WiFi connected");
+      Serial.println(WiFi.localIP()); 
+      Udp.begin(localUdpPort);
 }
 
 //**********************************************
@@ -75,6 +99,7 @@ void initialize() {
 
       //State function code
       Serial.println("Inicializando Dispositivo...");
+      
       //Transition Code
       nextState = SEND_HB;
     }
@@ -90,11 +115,34 @@ void readPumpStates(){
       //make a UDP Read function to get what is being send to me and put it to the packetBuffer[]
       
       //Transition Code
-      //Check the Packet Buffer. If it is "CHANGE" so transition to TOGGLE_PUMP
-      boolean pumpState = true; //tirar o comentário mais para frente
-      nextState = TOGGLE_PUMP;
-      //Else, transition to SEND_HB
-      nextState = SEND_HB;
+
+//      int packetSize = Udp.parsePacket();
+//if (packetSize)
+//{
+//  int len = Udp.read(incomingPacket, 255);
+//  if (len > 0)
+//  {
+//   if (incomingPacket == "ToPu")
+//   {
+//    nextState = TOGGLE_PUMP;
+//     pumpState = true;
+//    Serial.println("mudando estado!");
+//   }else{
+//    nextState = SEND_HB;
+//    Serial.println("Na mesma");
+//   }
+//  }else{
+ nextState = SEND_HB;
+    Serial.println("voltando..."); 
+//}
+
+  //    }
+      
+//      //Check the Packet Buffer. If it is "CHANGE" so transition to TOGGLE_PUMP
+//      pumpState = true; //tirar o comentário mais para frente
+//      nextState = TOGGLE_PUMP;
+//      //Else, transition to SEND_HB
+//      nextState = SEND_HB;
 }
 
 //*********************************************
@@ -124,14 +172,34 @@ void togglePump(boolean pumpState){
 
 void heartBeat(){
       //State function code
-      Serial.println("HB ACK");
+      Udp.beginPacket("192.168.0.128", 61500);
+      Udp.write("HB");
+      Udp.endPacket();
+      Serial.println("HB");
       //Transition Code
-      //SE EU LER O SINAL, VOLTAR E LER O ESTADO DA BOMBA
-      nextState = READ_PUMP_STATE;      
-      //SE EU NÃO LER O SINAL, DESVIAR PARA O SAFE STATE
-      nextState = SEND_HB;
-      }
+//int packetSize = Udp.parsePacket();
+//if (packetSize)
+//{
+  int len = Udp.read(incomingPacket, 255);
+  Serial.println(incomingPacket);
+  Serial.println(String(len));
+  if (len > 0)
+  {
+//   if (incomingPacket == replyPacket)
+  // {
+    nextState = READ_PUMP_STATE;
+    Serial.println("Lendo estado da Bomba!");
+   }else{
+    nextState = SEND_HB;
+    Serial.println("NACK");
+   }
+//  }else{
+//  nextState = SEND_HB;
+//    Serial.println("nao veio");
+//}
 
+     // }
+}
 //*********************************************
 //SAFE STATE
 //*********************************************
